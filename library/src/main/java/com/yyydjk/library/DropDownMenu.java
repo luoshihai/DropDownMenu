@@ -197,6 +197,8 @@ public class DropDownMenu extends LinearLayout {
     public void setTabText(String text) {
         if (current_tab_position != -1) {
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
+((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textSelectedColor);
+    
         }
     }
 
