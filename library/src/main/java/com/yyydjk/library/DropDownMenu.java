@@ -272,8 +272,8 @@ public class DropDownMenu extends LinearLayout {
             } else {
                 if (!temp.contains(i / 2)) {
 //                    ((TextView) tabMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
-                    ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                            getResources().getDrawable(menuUnselectedIcon), null);
+//                    ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
+//                            getResources().getDrawable(menuUnselectedIcon), null);
                     popupMenuViews.getChildAt(i / 2).setVisibility(View.GONE);
                 }
 
