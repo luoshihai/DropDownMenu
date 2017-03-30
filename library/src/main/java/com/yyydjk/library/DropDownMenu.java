@@ -2,6 +2,7 @@ package com.yyydjk.library;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.AttributeSet;
@@ -210,18 +211,21 @@ public class DropDownMenu extends LinearLayout {
      * 关闭菜单
      */
     public void closeMenu() {
-        closeMenu(textUnselectedColor);
+        closeMenu(textUnselectedColor,null);
     }
 
 
     /**
      * 关闭菜单
      */
-    public void closeMenu(int textColor) {
+    public void closeMenu(int textColor,Drawable drawAble) {
+        if (drawAble == null) {
+            drawAble = getResources().getDrawable(menuUnselectedIcon);
+        }
         if (current_tab_position != -1) {
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textColor);
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
-                    getResources().getDrawable(menuUnselectedIcon), null);
+                    drawAble, null);
             popupMenuViews.setVisibility(View.GONE);
             popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_out));
             maskView.setVisibility(GONE);

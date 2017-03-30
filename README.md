@@ -1,9 +1,7 @@
-[![](https://jitpack.io/v/dongjunkun/DropDownMenu.svg)](https://jitpack.io/#dongjunkun/DropDownMenu)
 
 ## 简介
 一个实用的多条件筛选菜单，在很多App上都能看到这个效果，如美团，爱奇艺电影票等
 
-我的博客 [自己造轮子--android常用多条件帅选菜单实现思路（类似美团，爱奇艺电影票下拉菜单）](http://www.jianshu.com/p/d9407f799d2d)
 
 ##特色
  - 支持多级菜单
@@ -15,9 +13,7 @@
 
 <a href="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/app/build/outputs/apk/app-debug.apk">Download APK</a>
 
-或者扫描二维码
 
-<img src="https://raw.githubusercontent.com/dongjunkun/DropDownMenu/master/art/download.png"/>
 
 ##Gradle Dependency
 
@@ -30,7 +26,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.dongjunkun:DropDownMenu:1.0.3'
+    compile 'com.github.luoshihai:DropDownMenu:v1.0.3'
 }
 ```
 
@@ -59,7 +55,5 @@ dependencies {
  //tabs 所有标题，popupViews  所有菜单，contentView 内容
 mDropDownMenu.setDropDownMenu(tabs, popupViews, contentView);
 ```
-如果你要了解更多，可以直接看源码  <a href="https://github.com/dongjunkun/DropDownMenu/blob/master/app/src/main/java/com/yyy/djk/dropdownmenu/MainActivity.java">Example</a>
 
-##关于我
-简书[dongjunkun](http://www.jianshu.com/users/f07458c1a8f3/latest_articles)
+
