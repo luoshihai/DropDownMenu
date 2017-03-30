@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTabCreat(LinearLayout parent, TextView view, int index) {
                 if (3 == index) {
+                    view.setPadding(mDropDownMenu.dpTpPx(1), mDropDownMenu.dpTpPx(12), mDropDownMenu.dpTpPx(5), mDropDownMenu.dpTpPx(12));
                     view.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.mipmap.drop_down_selected_icon), null,null , null);
                     parent.addView(view);
                     view.setOnClickListener(new View.OnClickListener() {

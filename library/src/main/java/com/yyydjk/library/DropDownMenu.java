@@ -136,7 +136,7 @@ public class DropDownMenu extends LinearLayout {
         containerView.addView(popupMenuViews, 2);
 
         for (int i = 0; i < popupViews.size(); i++) {
-            if (temp.contains(i)){
+            if (temp.contains(i)) {
                 popupViews.remove(i);
                 popupViews.add(new View(contentView.getContext()));
             }
@@ -197,8 +197,6 @@ public class DropDownMenu extends LinearLayout {
     public void setTabText(String text) {
         if (current_tab_position != -1) {
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setText(text);
-((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textSelectedColor);
-    
         }
     }
 
@@ -212,8 +210,16 @@ public class DropDownMenu extends LinearLayout {
      * 关闭菜单
      */
     public void closeMenu() {
+        closeMenu(textUnselectedColor);
+    }
+
+
+    /**
+     * 关闭菜单
+     */
+    public void closeMenu(int textColor) {
         if (current_tab_position != -1) {
-            ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textUnselectedColor);
+            ((TextView) tabMenuView.getChildAt(current_tab_position)).setTextColor(textColor);
             ((TextView) tabMenuView.getChildAt(current_tab_position)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                     getResources().getDrawable(menuUnselectedIcon), null);
             popupMenuViews.setVisibility(View.GONE);
@@ -224,6 +230,7 @@ public class DropDownMenu extends LinearLayout {
         }
 
     }
+
 
     /**
      * DropDownMenu是否处于可见状态
@@ -241,18 +248,16 @@ public class DropDownMenu extends LinearLayout {
      */
     private void switchMenu(View target) {
         for (int i = 0; i < tabMenuView.getChildCount(); i = i + 2) {
-
             if (target == tabMenuView.getChildAt(i)) {
                 if (current_tab_position == i) {
                     closeMenu();// 如果点击已经展开的  就关闭
                 } else {
+                    closeMenu();
                     if (current_tab_position == -1) {//如果现在是关闭的
                         popupMenuViews.setVisibility(View.VISIBLE);
                         popupMenuViews.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_menu_in));
                         maskView.setVisibility(VISIBLE);
                         maskView.setAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.dd_mask_in));
-                        popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
-                    } else {//如果现在已经展开的  只需要将内容替换就行
                         popupMenuViews.getChildAt(i / 2).setVisibility(View.VISIBLE);
                     }
                     current_tab_position = i;
@@ -261,8 +266,8 @@ public class DropDownMenu extends LinearLayout {
                             getResources().getDrawable(menuSelectedIcon), null);
                 }
             } else {
-                if (!temp.contains(i/2)) {
-                    ((TextView) tabMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
+                if (!temp.contains(i / 2)) {
+//                    ((TextView) tabMenuView.getChildAt(i)).setTextColor(textUnselectedColor);
                     ((TextView) tabMenuView.getChildAt(i)).setCompoundDrawablesWithIntrinsicBounds(null, null,
                             getResources().getDrawable(menuUnselectedIcon), null);
                     popupMenuViews.getChildAt(i / 2).setVisibility(View.GONE);
